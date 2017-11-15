@@ -1,3 +1,19 @@
 baseURL = "http://example.org/"
 languageCode = "en-us"
 title = "My New Hugo Site"
+theme = "icon"
+
+[params]
+  author = "Your name"
+  description = "Cool description"
+
+# Hero section (from here on is for icon theme)
+[params.hero]
+  img = "background.jpg"
+  title = "Brett & Kate's Wedding"
+  description = "But, we are already married"
+
+# Footer section
+[params.footer]
+  enable = true
+  note = ""
