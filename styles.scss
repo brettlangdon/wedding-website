@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css?family=Great+Vibes|Montserrat|Playfair+Display');
+@import "bulma/sass/utilities/initial-variables";
+
+// Overrides
+$family-sans-serif: 'Montserrat', sans-serif;
+$family-serif: 'Playfair Display', serif;
+$family-cursive: 'Great Vibes', cursive;
+$turquoise: rgb(0,101,99);
+$turquoise-light: rgb(59,156,144);
+$maroon: rgb(98,7,49);
+$maroon-light: rgb(181,58,102);
+$yellow: rgb(205,163,73);
+$yellow-light: rgb(226,198,117);
+
+$grey: rgb(188,193,192);
+$grey-light: rgb(232,234,233);
+$grey-darker: rgb(37,43,42);
+$grey-dark: rgb(90,96,96);
+
+$text: $grey-darker;
+
+@import "bulma/sass/utilities/functions";
+@import "bulma/sass/utilities/derived-variables.sass";
+@import "bulma/bulma";
+
+.title {
+    font-family: $family-serif;
+
+    &.headline {
+        font-family: $family-cursive;
+    }
+}
+
+.subtitle {
+    font-family: $family-serif;
+}
+
+.tabs {
+    li {
+        font-family: $family-serif;
+    }
+}
+
+
+.hero-body {
+    background-image: url('background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: scroll;
+    background-position: 0% 50%;
+}
+@media screen and (max-width: 1100px) {
+    .hero-body {
+        background-position: 50% 50%;
+    }
+}
+@media screen and (max-width: 750px) {
+    .hero-body {
+        background-position: 65% 50%;
+    }
+    .hero-body .title {
+        margin-top: -4rem;
+    }
+}
+
+
+.jump-to-top {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: fixed;
+    right: 1rem;
+    bottom: 0;
+    width: 40px;
+    height: 40px;
+    z-index: 90;
+
+    svg {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        top: 6px;
+        left: 5px;
+    }
+}
+
+
+.open-mobile-menu {
+    background-color: rgba(255, 255, 255, 0.8);
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    width: 40px;
+    height: 40px;
+    z-index: 90;
+
+    svg {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        width: 25px;
+        height: 25px;
+    }
+}
+
+
+.mobile-menu {
+    background-color: $grey-light;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    .close-mobile-menu {
+        position: relative;
+        width: 40px;
+        height: 40px;
+        margin-top: 1rem;
+        margin-left: 1rem;
+
+        svg {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            width: 25px;
+            height: 25px;
+        }
+    }
+}
+
+
+.section.is-grey {
+    background-color: $grey-light;
+}
+
+
+.headline {
+    @include from($desktop) {
+        font-size: $size-1;
+    }
+
+    @include until($desktop) {
+        font-size: $size-3;
+    }
+
+    &+.subtitle {
+        @include from($desktop){
+            font-size: $size-5;
+        }
+
+        @include until($desktop) {
+            font-size: $size-6;
+        }
+    }
+}
+
+
+.hero-logo {
+    position: absolute;
+    width: 10rem;
+    height: 10rem;
+    top: 1rem;
+    right: 1rem;
+
+    @include until($desktop) {
+        width: 7rem;
+        height: 7rem;
+    }
+}

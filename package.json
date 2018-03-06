@@ -1,0 +1,30 @@
+{
+  "name": "brettkate.wedding",
+  "version": "1.0.0",
+  "description": "https://brettkate.wedding/",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm run scss && npm run favicon",
+    "favicon": "real-favicon generate faviconDescription.json faviconData.json . && real-favicon inject faviconData.json . index.html",
+    "scss": "node-sass --include-path=node_modules/ --output-style=compressed --output=. styles.scss",
+    "dev": "node-sass --include-path=node_modules/ --output-style=compressed --output=. --watch=./styles.scss styles.scss"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brettlangdon/wedding-website.git"
+  },
+  "author": "Brett Langdon <me@brett.is>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/brettlangdon/wedding-website/issues"
+  },
+  "homepage": "http://brettkate.wedding/",
+  "devDependencies": {
+    "bulma": "^0.6.2",
+    "cli-real-favicon": "0.0.6",
+    "node-sass": "^4.7.2"
+  },
+  "dependencies": {
+    "npm": "^5.7.1"
+  }
+}
