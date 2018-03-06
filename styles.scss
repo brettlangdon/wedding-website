@@ -136,20 +136,31 @@ $text: $grey-darker;
 
 .headline {
     @include from($desktop) {
-        font-size: $size-1;
+        font-size: 7rem;
+        line-height: 7rem;
     }
 
     @include until($desktop) {
-        font-size: $size-3;
+        font-size: 5rem;
+        line-height: 5rem;
+    }
+
+    @include until($tablet) {
+        font-size: 3rem;
+        line-height: 3rem;
     }
 
     &+.subtitle {
-        @include from($desktop){
-            font-size: $size-5;
+        @include from($desktop) {
+            font-size: 2rem;
         }
 
-        @include until($desktop) {
-            font-size: $size-6;
+        @include until($desktop){
+            font-size: 1.5rem;
+        }
+
+        @include until($tablet) {
+            font-size: 1rem;
         }
     }
 }
@@ -161,6 +172,7 @@ $text: $grey-darker;
     height: 10rem;
     top: 1rem;
     right: 1rem;
+    z-index: 110;
 
     @include until($desktop) {
         width: 7rem;
