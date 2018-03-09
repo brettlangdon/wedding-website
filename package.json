@@ -7,7 +7,9 @@
     "postinstall": "npm run scss && npm run favicon",
     "favicon": "real-favicon generate faviconDescription.json faviconData.json . && real-favicon inject faviconData.json . index.html",
     "scss": "node-sass --include-path=node_modules/ --output-style=compressed --output=. styles.scss",
-    "dev": "node-sass --include-path=node_modules/ --output-style=compressed --output=. --watch=./styles.scss styles.scss"
+    "dev/scss": "node-sass --include-path=node_modules/ --output-style=compressed --output=. --watch=./styles.scss styles.scss",
+    "dev/server": "lrserver --bind '0.0.0.0:3000' --lrbind '0.0.0.0:35729' --watch ./",
+    "dev": "concurrently 'npm run dev/scss' 'npm run dev/server'"
   },
   "repository": {
     "type": "git",
@@ -20,8 +22,10 @@
   },
   "homepage": "http://brettkate.wedding/",
   "devDependencies": {
+    "@brett_langdon/lrserver": "^1.0.1",
     "bulma": "^0.6.2",
     "cli-real-favicon": "0.0.6",
+    "concurrently": "^3.5.1",
     "node-sass": "^4.7.2"
   },
   "dependencies": {
