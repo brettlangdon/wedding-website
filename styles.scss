@@ -23,6 +23,11 @@ $text: $grey-darker;
 @import "bulma/sass/utilities/derived-variables.sass";
 @import "bulma/bulma";
 
+a {
+    color: $turquoise-light;
+    font-weight: bold;
+}
+
 .title {
     font-family: $family-serif;
 
@@ -36,8 +41,40 @@ $text: $grey-darker;
 }
 
 .tabs {
+    font-size: 1.1rem;
+
+    &.is-primary {
+        background-color: $primary;
+        color: $white;
+
+        a {
+            color: $white;
+
+            &:hover {
+                color: $grey-dark;
+                background-color: $white;
+            }
+        }
+    }
+
     li {
         font-family: $family-serif;
+    }
+}
+
+.footer {
+    &.is-primary {
+        background-color: $primary;
+        color: $white;
+
+        a {
+            color: $yellow-light;
+            font-weight: normal;
+
+            &:hover {
+                color: $yellow;
+            }
+        }
     }
 }
 
@@ -74,11 +111,16 @@ $text: $grey-darker;
     z-index: 90;
 
     svg {
+        fill: $grey-dark;
         position: absolute;
         width: 30px;
         height: 30px;
         top: 6px;
         left: 5px;
+
+        * {
+            fill: $grey-dark;
+        }
     }
 }
 
@@ -93,11 +135,16 @@ $text: $grey-darker;
     z-index: 90;
 
     svg {
+        fill: $grey-dark;
         position: absolute;
         top: 8px;
         left: 8px;
         width: 25px;
         height: 25px;
+
+        * {
+            fill: $grey-dark;
+        }
     }
 }
 
@@ -111,6 +158,26 @@ $text: $grey-darker;
     left: 0;
     z-index: 100;
 
+    &.is-primary {
+        background-color: $primary;
+        color: $white;
+
+        a {
+            color: $white;
+
+            &:hover {
+                color: $grey-dark;
+            }
+        }
+    }
+
+    .mobile-menu-logo {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        width: 7rem;
+    }
+
     .close-mobile-menu {
         position: relative;
         width: 40px;
@@ -119,11 +186,16 @@ $text: $grey-darker;
         margin-left: 1rem;
 
         svg {
+            fill: $grey-dark;
             position: absolute;
             top: 8px;
             left: 8px;
             width: 25px;
             height: 25px;
+
+            * {
+                fill: $grey-dark;
+            }
         }
     }
 }
@@ -172,7 +244,7 @@ $text: $grey-darker;
     height: 10rem;
     top: 1rem;
     right: 1rem;
-    z-index: 110;
+    z-index: 90;
 
     @include until($desktop) {
         width: 7rem;
