@@ -32,6 +32,7 @@ a {
     font-family: $family-serif;
 
     &.headline {
+        letter-spacing: 1px;
         font-family: $family-cursive;
     }
 
@@ -215,16 +216,31 @@ a {
     @include from($desktop) {
         font-size: 9rem;
         line-height: 7rem;
+
+        sup {
+            margin-left: 1rem;
+            margin-right: -2rem;
+        }
     }
 
     @include until($desktop) {
         font-size: 7.5rem;
         line-height: 6rem;
+
+        sup {
+            margin-left: 1rem;
+            margin-right: -1.5rem;
+        }
     }
 
     @include until($tablet) {
         font-size: 5rem;
         line-height: 4rem;
+
+        sup {
+            margin-left: 1rem;
+            margin-right: -1rem;
+        }
     }
 
     &+.subtitle {
