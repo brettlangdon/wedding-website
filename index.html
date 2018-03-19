@@ -15,7 +15,7 @@
     <meta property="og:image:secure_url" content="https://brettkate.wedding/logo.png">
     <meta property="og:image:type" content="image/png">
     <title>Brett and Kate's wedding</title>
-    <link rel="stylesheet" href="/styles.css?v=2309u4ljkdsm">
+    <link rel="stylesheet" href="/styles.css?v=1209ikl">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=XBzaKGvaex">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=XBzaKGvaex">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=XBzaKGvaex">
@@ -43,7 +43,7 @@
         <li><a href="#registry">Registry</a></li>
         <li><a href="#faq">FAQ</a></li>
         <li><a href="#things-to-do">Things to do in Rochester</a></li>
-        <li><a href="https://rsvp.as/" target="_blank" class="rsvp is-hidden">RSVP</a></li>
+        <li class="rsvp is-hidden"><a href="https://rsvp.as/" target="_blank">RSVP</a></li>
       </ul>
     </aside>
     <section class="hero is-fullheight">
@@ -65,13 +65,13 @@
               <li><a href="#registry">Registry</a></li>
               <li><a href="#faq">FAQ</a></li>
               <li><a href="#things-to-do">Things to do in Rochester</a></li>
-              <li><a href="https://rsvp.as/" target="_blank" class="rsvp is-hidden">RSVP</a></li>
+              <li class="rsvp is-hidden"><a href="https://rsvp.as/" target="_blank">RSVP</a></li>
             </ul>
           </div>
         </nav>
       </div>
     </section>
-    <section id="our-story" class="section is-grey">
+    <section id="our-story" class="section">
       <div class="container" style="max-width: 800px">
         <div class="content">
           <h1 class="title">Our story</h1>
@@ -134,7 +134,7 @@
         </div>
       </div>
     </section>
-    <section id="registry" class="section is-grey">
+    <section id="registry" class="section">
       <div class="container" style="max-width: 800px">
         <div class="content">
           <h1 class="title">Registry</h1>
@@ -146,6 +146,18 @@
           </p>
           <p>
             If you want a gift shipped to you to bring to us, we have a few items in a <a href="https://www.macys.com/wgl/registry/guest/6738469" target="_blank">Macys registry</a>.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="rsvp" class="section rsvp is-hidden">
+      <div class="container" style="max-width: 800px">
+        <div class="content has-text-centered">
+          <p>
+            <a class="button is-primary is-medium" href="https://rsvp.as/" target="_blank">RSVP</a>
+          </p>
+          <p>
+            Use the link above to start or update your RSVP.
           </p>
         </div>
       </div>
@@ -202,7 +214,7 @@
         </div>
       </div>
     </section>
-    <section id="things-to-do" class="section is-grey">
+    <section id="things-to-do" class="section">
       <div class="container" style="max-width: 800px">
         <div class="content">
           <h1 class="title is-spaced">Things to do in Rochester</h1>
@@ -368,11 +380,19 @@
        return decodeURIComponent(results[2].replace(/\+/g, " "));
      }
      var rsvpCode = getParameterByName('rsvp');
+     var rsvp = document.querySelectorAll('.rsvp');
      if (rsvpCode) {
-       var rsvp = document.querySelectorAll('.rsvp')
+       var href = 'https://rsvp.as/' + encodeURIComponent(rsvpCode);
        for (var i = 0; i < rsvp.length; i += 1) {
-         rsvp[i].href = 'https://rsvp.as/' + encodeURIComponent(rsvpCode);
+         var links = rsvp[i].querySelectorAll('a');
+         for (var j = 0; j < links.length; j += 1) {
+           links[j].href = href;
+         }
          rsvp[i].classList.remove('is-hidden');
+       }
+     } else {
+       for (var i = 0; i < rsvp.length; i += 1) {
+         rsvp[i].remove();
        }
      }
     </script>

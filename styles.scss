@@ -207,7 +207,7 @@ a {
 }
 
 
-.section.is-grey {
+.section:nth-child(odd) {
     background-color: $grey-light;
 }
 
